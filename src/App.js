@@ -1,5 +1,13 @@
+import Main from "./Main";
+import Side from "./Side";
+
 function App() {
-  return <h1>Lotion</h1>;
+  
+    return <div className="App">
+        <Side/>
+        <Main />
+  
+        </div>
 }
 
 export default App;
