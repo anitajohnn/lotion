@@ -114,7 +114,7 @@ h3{
 }
 .app-side-note.active,
 .app-side-note.active small {
-  background: #08c;
+  background: plum;
   color: white;
 }
 .app-sidebar-header button{
