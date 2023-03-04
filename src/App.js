@@ -8,6 +8,7 @@ import Header from "./Header";
 
 function App() {
     const [notes, setNotes] = useState([]);
+    const [activeNote, setActiveNote] = useState(false);
 
 
     const onAddNote = () => {
@@ -25,7 +26,11 @@ function App() {
         setNotes([newNote, ...notes])
     };
     return <div className="App">
-        <Side notes = {notes} onAddNote={onAddNote}/>
+        <Side 
+        notes = {notes} 
+        onAddNote={onAddNote}
+        activeNote= {activeNote}
+        setActiveNote={setActiveNote} />
         <Main />
         <Header/>
 

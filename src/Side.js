@@ -1,4 +1,4 @@
-function Side({notes, onAddNote }){
+function Side({notes, onAddNote, activeNote, setActiveNote }){
     return(
     <div className="app-side">
         <div className="app-sidebar-header">
@@ -9,7 +9,8 @@ function Side({notes, onAddNote }){
 
         <div className="app-side-notes">
             {notes.map((note)=>(
-                <div className="app-side-note">
+                <div className={`app-side-note ${note.id === activeNote && "active"}`}
+                onClick={() => setActiveNote(note.id)}>
                 <div className="app-side-title">
                     <strong> {note.title}</strong>
                     
