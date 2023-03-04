@@ -85,6 +85,7 @@ h3{
 .app-sidebar-header h1 {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
+  padding: 10px;
 }
 .app-side-notes {
   height: calc(100vh - 78px);
@@ -101,6 +102,8 @@ h3{
 .app-side-title {
   display: flex;
   justify-content: space-between;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 35px;
 }
 .app-side-note small{
   display: block;
@@ -114,19 +117,22 @@ h3{
   background: #08c;
   color: white;
 }
-button {
+.app-sidebar-header button{
   background: none;
+  
   border: 0;
   margin: 0;
-  padding: 0;
+  padding:10px;
   font-size: inherit;
   font-family: inherit;
   cursor: pointer;
   color:black;
-  font-size: 35px;
+  font-size: 40px;
+  
 
   
 }
+
 button:hover {
   color: grey;
 }

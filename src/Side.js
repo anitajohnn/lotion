@@ -1,24 +1,34 @@
-function Side(){
+function Side({notes, onAddNote }){
     return(
     <div className="app-side">
         <div className="app-sidebar-header">
             <h1>Notes</h1>
             
-            <button>&#43;</button>
+            <button onClick={onAddNote}>&#43;</button>
         </div>
 
         <div className="app-side-notes">
-            <div className="app-side-note">
+            {notes.map((note)=>(
+                <div className="app-side-note">
                 <div className="app-side-title">
-                    <strong> TITLE</strong>
+                    <strong> {note.title}</strong>
                     
                 </div>
-                <p>Note preview</p>
+                <p>{note.body && note.body.substr(0,100) + "..."}</p>
 
                 <small className="note-meta">
-                    Last modified at date[]
+                    
+                    {new Date (note.lastModified).toLocaleDateString("en-CA",{
+                        month:"long",
+                       
+                        hour: "2-digit",
+                        minute: "2-digit"
+                    })}
                 </small>
             </div>
+
+            ))}
+            
         </div>
    
    
