@@ -16,7 +16,7 @@ function Side(){
                 <p>Note preview</p>
 
                 <small className="note-meta">
-                    Last modified at [date[]]
+                    Last modified at date[]
                 </small>
             </div>
         </div>
