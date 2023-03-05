@@ -1,16 +1,24 @@
-function Side({ notes, onAddNote, activeNote, setActiveNote }) {
+function Side({ notes, onAddNote, activeNote, setActiveNote, setShowNoteEditor }) {
+    const handleAddNote = () => {
+      setShowNoteEditor(true);
+      onAddNote();
+    };
+  
     return (
       <div className="app-side">
         <div className="app-sidebar-header">
           <h1>Notes</h1>
-          <button onClick={onAddNote}>&#43;</button>
+          <button onClick={handleAddNote}>&#43;</button>
         </div>
         <div className="app-side-notes">
           {notes.map((note) => (
             <div
               key={note.id}
               className={`app-side-note ${note.id === activeNote && "active"}`}
-              onClick={() => setActiveNote(note.id)}
+              onClick={() => {
+                setActiveNote(note.id);
+                setShowNoteEditor(true);
+              }}
             >
               <div className="app-side-title">
                 <strong> {note.title}</strong>
@@ -22,7 +30,7 @@ function Side({ notes, onAddNote, activeNote, setActiveNote }) {
                   day: "numeric",
                   year: "numeric",
                   hour: "2-digit",
-                  minute: "2-digit"
+                  minute: "2-digit",
                 })}
               </small>
             </div>
@@ -33,3 +41,4 @@ function Side({ notes, onAddNote, activeNote, setActiveNote }) {
   }
   
   export default Side;
+  
