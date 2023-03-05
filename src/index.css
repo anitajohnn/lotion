@@ -26,7 +26,7 @@ a {
 
   /*margin-top: 0; /* remove the previous value */
   
-  position: relative;
+  position: fixed;
   top: 75px;
   left: 0;
   z-index: 1; /* set a higher z-index than the sidebar */
@@ -43,9 +43,10 @@ a {
   font-family: Arial, Helvetica, sans-serif;
   cursor: pointer;
   position: fixed;
-  bottom: 925px;
+  bottom: 945px;
   left:30px; 
   border: none;
+ 
 
   
 }
@@ -141,6 +142,7 @@ h3{
   cursor: pointer;
   color:black;
   font-size: 40px;
+
   
 
   
@@ -174,7 +176,7 @@ button:hover {
   width: 1400px; /* Set the width of the element to 50 pixels */
   margin: 20px auto;;
   margin-left: 486px;
-  position: absolute; /* add this */
+  position: fixed; /* add this */
   top: 150px; /* adjust this value as needed */
  
   

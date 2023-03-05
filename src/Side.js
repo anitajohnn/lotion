@@ -4,6 +4,7 @@ function Side({notes, onAddNote, activeNote, setActiveNote }){
         <div className="app-sidebar-header">
             <h1>Notes</h1>
             
+            
             <button onClick={onAddNote}>&#43;</button>
         </div>
 
