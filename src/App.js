@@ -7,22 +7,21 @@ import Header from "./Header";
 function App() {
   const [notes, setNotes] = useState([]);
   const [activeNote, setActiveNote] = useState(false);
-  const [showSidebar, setShowSidebar] = useState(false);
+  const [showSide, setShowSide] = useState(true);
 
   const onAddNote = () => {
     const newNote = {
       id: uuid(),
       title: "Untitled",
       body: "",
-      lastModified: Date.now()
+      lastModified: Date.now(),
     };
-    setNotes([newNote, ...notes])
+    setNotes([newNote, ...notes]);
   };
 
   return (
     <div className="App">
-      <Header onToggleSidebar={() => setShowSidebar(!showSidebar)} />
-      {showSidebar && (
+      {showSide && (
         <Side
           notes={notes}
           onAddNote={onAddNote}
@@ -30,7 +29,8 @@ function App() {
           setActiveNote={setActiveNote}
         />
       )}
-      <Main />
+      <Main showSide={showSide} />
+      <Header onToggleSide={() => setShowSide((prev) => !prev)} />
     </div>
   );
 }
