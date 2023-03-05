@@ -6,7 +6,7 @@ function Main(){
 
 
             <div className="main-note-edit">
-                <input type="text" id="title" autoFocus/>
+                <input type="text" id="title" placeholder="Untitled" autoFocus/>
                 <textarea id="body" placeholder="Your Note Here"></textarea>
 
 
