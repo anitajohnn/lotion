@@ -21,6 +21,8 @@ function Side({notes, onAddNote, activeNote, setActiveNote }){
                     
                     {new Date (note.lastModified).toLocaleDateString("en-CA",{
                         month:"long",
+                        day: 'numeric',
+                        year: 'numeric',
                        
                         hour: "2-digit",
                         minute: "2-digit"
