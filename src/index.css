@@ -150,3 +150,20 @@ button:hover {
   background: #08c;
   color: white;
 }
+
+.app-main-line{
+  /*border-top: 4px solid lightgrey;
+  width: 1400px; /* Set the width of the element to 50 pixels */
+  /*margin: 20px auto;;
+  margin-left: 500px;*/
+
+  border-top: 2px solid lightgrey;
+  width: 1400px; /* Set the width of the element to 50 pixels */
+  margin: 20px auto;;
+  margin-left: 486px;
+  position: absolute; /* add this */
+  top: 150px; /* adjust this value as needed */
+ 
+  
+
+}
