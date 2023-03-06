@@ -191,30 +191,31 @@ button:hover {
 /*}*/
 
 #body{
-    /* existing styles */
-    position: fixed;
-    margin-top: 140px; 
-    margin-left: 484px;;
-    display: block;
-    /*border: 1px solid #ddd;*/
-    margin-bottom: 80px;
-    width: 73%;
-    height: 800px;
-    padding: 10px;
-    resize: none;
-    font-size: inherit;
-    font-family: Arial, Helvetica, sans-serif;
-    outline: none;
-  }
+  /* existing styles */
+  position: fixed;
+  margin-top: 150px; 
+  margin-left: 484px;;
+  display: block;
+  /*border: 1px solid #ddd;*/
+  margin-bottom: 80px;
+  width: 73%;
+  height: 800px;
+  padding: 10px;
+  resize: none;
+  font-size: inherit;
+  font-family: Arial, Helvetica, sans-serif;
+  outline: none;
+}
 
 
 .main-note-edit input{
   position: fixed;
+
   display: block;
   margin-left: 500px;
-  margin-top: 80px;
+  margin-top: 100px;
   margin-bottom: -100px;
-  width: 70%;
+  width: 50%;
   height: calc(50vh - 130px);
   padding: 10px;
   resize: none;
@@ -229,3 +230,19 @@ button:hover {
 
 }
 
+
+.delete{
+  background: transparent;
+  border: none;
+  font-size: 25px;
+  margin-bottom: 30px;
+  margin-left: 1500px;
+  border: none;
+  outline: none;
+  margin-top: 115px;
+  padding: none;
+
+  position: fixed;
+
+
+}
