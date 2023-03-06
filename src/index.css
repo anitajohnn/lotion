@@ -190,22 +190,22 @@ button:hover {
   /*margin-top: calc(150px + 2px + 25px); /* set to the height of the app-main-line + border + any additional margin/padding */
 /*}*/
 
-.main-note-edit textarea{
-  /* existing styles */
-  position: fixed;
-  margin-top: 220px; 
-  margin-left: 484px;;
-  display: block;
-  /*border: 1px solid #ddd;*/
-  margin-bottom: 80px;
-  width: 73%;
-  height: 800px;
-  padding: 10px;
-  resize: none;
-  font-size: inherit;
-  font-family: Arial, Helvetica, sans-serif;
-  outline: none;
-}
+#body{
+    /* existing styles */
+    position: fixed;
+    margin-top: 140px; 
+    margin-left: 484px;;
+    display: block;
+    /*border: 1px solid #ddd;*/
+    margin-bottom: 80px;
+    width: 73%;
+    height: 800px;
+    padding: 10px;
+    resize: none;
+    font-size: inherit;
+    font-family: Arial, Helvetica, sans-serif;
+    outline: none;
+  }
 
 
 .main-note-edit input{
@@ -228,3 +228,4 @@ button:hover {
   outline: none;
 
 }
+

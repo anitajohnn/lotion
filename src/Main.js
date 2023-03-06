@@ -1,3 +1,10 @@
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css'; // import the styles
+
+
+
+
+
 function Main({ showNoteEditor }) {
     return (
       <div className="app-main">
@@ -6,9 +13,9 @@ function Main({ showNoteEditor }) {
         )}
         {showNoteEditor && (
           <div className="main-note-edit">
-            <input type="text" id="title" placeholder="Untitled" autoFocus />
-            <textarea id="body" placeholder="Your Note Here"></textarea>
-          </div>
+          <input type="text" id="title" placeholder="Untitled" autoFocus/>
+          <ReactQuill id="body" placeholder="Your Note Here" />
+        </div>
         )}
       </div>
     );
