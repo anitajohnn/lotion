@@ -49,17 +49,14 @@ function App() {
 
   return (
     <div className="App">
-      <Header />
-      <div className="content-container">
-        <Side
-          notes={notes}
-          onAddNote={onAddNote}
-          onDeleteNote={onDeleteNote}
-          activeNote={activeNote}
-          setActiveNote={setActiveNote}
-        />
-        <Main activeNote={getActiveNote()} onUpdateNote={onUpdateNote} />
-      </div>
+      <Side
+        notes={notes}
+        onAddNote={onAddNote}
+        onDeleteNote={onDeleteNote}
+        activeNote={activeNote}
+        setActiveNote={setActiveNote}
+      />
+      <Main activeNote={getActiveNote()} onUpdateNote={onUpdateNote} />
     </div>
   );
 }

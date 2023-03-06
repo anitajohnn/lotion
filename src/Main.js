@@ -1,8 +1,6 @@
 import ReactMarkdown from "react-markdown";
 import ReactQuill from 'react-quill';
-import 'react-quill/dist/quill.snow.css'; // import the styles
-
-
+import 'react-quill/dist/quill.snow.css'
 
 const Main = ({ activeNote, onUpdateNote }) => {
   const onEditField = (field, value) => {
@@ -13,12 +11,12 @@ const Main = ({ activeNote, onUpdateNote }) => {
     });
   };
 
-  if (!activeNote) return <div className="no-active-note">Select a note, or create one</div>;
+  if (!activeNote) return <div className="no-active-note">No Active Note</div>;
 
   return (
-    <div className="app-main" >
+    <div className="app-main">
       <div className="app-main-note-edit">
-        <input 
+        <input
           type="text"
           id="title"
           placeholder="Note Title"
@@ -26,13 +24,8 @@ const Main = ({ activeNote, onUpdateNote }) => {
           onChange={(e) => onEditField("title", e.target.value)}
           autoFocus
         />
-
-        <ReactQuill id="body" placeholder="Your Note Here" value={activeNote.body}
-          onChange={(e) => onEditField("body", e.target.value)} />
-
-       
+        <ReactQuill id="body" placeholder="Your Note Here" />
       </div>
-      
       
     </div>
   );
