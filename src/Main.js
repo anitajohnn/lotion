@@ -13,10 +13,14 @@ function Main({ showNoteEditor }) {
         )}
         {showNoteEditor && (
           <div className="main-note-edit">
+          <button className= "delete">Delete</button>
           <input type="text" id="title" placeholder="Untitled" autoFocus/>
           <ReactQuill id="body" placeholder="Your Note Here" />
         </div>
         )}
+
+
+        
       </div>
     );
   }
