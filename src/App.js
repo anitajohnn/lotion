@@ -1,41 +1,68 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import uuid from "react-uuid";
-import Side from "./Side";
+import "./index.css";
 import Main from "./Main";
+import Side from "./Side";
 import Header from "./Header";
 
 function App() {
-  const [notes, setNotes] = useState([]);
-  const [activeNote, setActiveNote] = useState(null);
-  const [showSide, setShowSide] = useState(true);
-  const [showNoteEditor, setShowNoteEditor] = useState(false);
+  const [notes, setNotes] = useState(
+    localStorage.notes ? JSON.parse(localStorage.notes) : []
+  );
+  const [activeNote, setActiveNote] = useState(false);
+
+  useEffect(() => {
+    localStorage.setItem("notes", JSON.stringify(notes));
+  }, [notes]);
 
   const onAddNote = () => {
     const newNote = {
       id: uuid(),
-      title: "Untitled",
+      title: "Untitled Note",
       body: "",
       lastModified: Date.now(),
     };
+
     setNotes([newNote, ...notes]);
     setActiveNote(newNote.id);
   };
 
+  const onDeleteNote = (noteId) => {
+    setNotes(notes.filter(({ id }) => id !== noteId));
+  };
+
+  const onUpdateNote = (updatedNote) => {
+    const updatedNotesArr = notes.map((note) => {
+      if (note.id === updatedNote.id) {
+        return updatedNote;
+      }
+
+      return note;
+    });
+
+    setNotes(updatedNotesArr);
+  };
+
+  const getActiveNote = () => {
+    return notes.find(({ id }) => id === activeNote);
+  };
+
   return (
     <div className="App">
-      {showSide && (
+      <Header />
+      <div className="content-container">
         <Side
           notes={notes}
           onAddNote={onAddNote}
+          onDeleteNote={onDeleteNote}
           activeNote={activeNote}
           setActiveNote={setActiveNote}
-          setShowNoteEditor={setShowNoteEditor}
         />
-      )}
-      <Main showNoteEditor={showNoteEditor} />
-      <Header onToggleSide={() => setShowSide((prev) => !prev)} />
+        <Main activeNote={getActiveNote()} onUpdateNote={onUpdateNote} />
+      </div>
     </div>
   );
 }
 
 export default App;
+

@@ -1,165 +1,150 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css");
+
+* {
+  box-sizing: border-box;
+}
+
+/* GLOBAL STYLES */
+
 body,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-li,
-p {
+.App {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  width: 100%;
+  height: 100vh;
+  /*overflow: hidden;*/
+  font-size: 16px;
+  background: url(https://www.toptal.com/designers/subtlepatterns/patterns/lightpaperfibers.png);
+}
+
+button {
+  background: none;
+  border: 0;
   margin: 0;
   padding: 0;
-
+  font-size: inherit;
+  font-family: inherit;
+  cursor: pointer;
+  color: #08c;
 }
-a {
-  color: inherit;
-  text-decoration: none;
+button:hover {
+  color: #04c;
+}
+
+.App {
+  display: flex;
 }
 
 .header{
-  background-color: white;
+  
  
   border-bottom: 2px solid lightgrey;
   width: 100%;
-  /*margin-top: -1120px;*/
+  margin-top: -60px;
 
 
-  /*margin-top: 0; /* remove the previous value */
-  
+
+
+   /* remove the previous value */
+ 
   position: fixed;
   top: 75px;
   left: 0;
   z-index: 1; /* set a higher z-index than the sidebar */
  
-  
-  
-  
-
-}
-/**/ 
-
-.header button{
-  background: none;
-  font-size: 40px;
-  font-family: Arial, Helvetica, sans-serif;
-  cursor: pointer;
-  position: fixed;
-  bottom: 945px;
-  left:30px; 
-  border: none;
+ 
+ 
  
 
-  
-}
-.header h1{
-  font-size: 45px;
-  font-family: Arial, Helvetica, sans-serif;
-  margin: 0;
-  position: absolute;
-  top:-40px;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  
-}
-h3{
-  font-size: 5x;
-  font-family: Arial, Helvetica, sans-serif;
-  color: grey;
-  font-size: 15px;
-  margin: 0;
-  margin: 0;
-  position: absolute;
-  top: -15px;
-  left: 50%;
-  transform: translate(-50%, -50%);
+
 }
 
-.app-side{
-  width: 26%;
+
+
+
+
+.App {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  margin-left: -330px;
+  margin-top: 98px;
+}
+
+.content-container {
+  display: flex;
+  flex: 1;
+  margin-left: 325px;
+  
+}
+
+.Header {
+  padding: 20px;
+  background-color: #f2f2f2;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* SIDEBAR STYLES */
+
+.app-sidebar {
+  width: 30%;
   height: 100vh;
   border-right: 1px solid #ddd;
-  /*margin-top: 210px;*/
-
-  /* ... other styles ... */
-  margin-top: calc(100px + 2px); /* set to the height of the header + border */
   position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 0; /* set a lower z-index than the header */
-
-  
-
 }
-.app-sidebar-header{
+
+.app-sidebar-header {
   display: flex;
-  display: fixed;
   justify-content: space-between;
-  /*padding: 25px;*/
-  border-bottom: 2px solid lightgrey;
+  padding: 25px;
 }
 .app-sidebar-header h1 {
   margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  padding: 10px;
 }
-.app-side-notes {
-  height: calc(100vh - 78px);
-  /*overflow-y: scroll;*/
- 
 
-  
- 
+.app-sidebar-notes {
+  height: calc(100vh - 78px);
+  overflow-y: scroll;
 }
-.app-side-note {
+.app-sidebar-note {
   padding: 25px;
   cursor: pointer;
 }
-.app-side-title {
+.sidebar-note-title {
   display: flex;
   justify-content: space-between;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 35px;
 }
-.app-side-note small{
+.app-sidebar-note button {
+  color: crimson;
+}
+.app-sidebar-note p {
+  margin: 10px 0;
+}
+.app-sidebar-note small {
   display: block;
   color: #999;
 }
-.app-side-note:hover {
+
+.app-sidebar-note:hover {
   background: #ddd;
-}
-.app-side-note.active,
-.app-side-note.active small {
-  background: lightpink;
-  color: white;
-}
-.app-sidebar-header button{
-  background: none;
-  
-  border: 0;
-  margin: 0;
-  padding:10px;
-  font-size: inherit;
-  font-family: inherit;
-  cursor: pointer;
-  color:black;
-  font-size: 40px;
-
-  
-
-  
-}
-
-button:hover {
-  color: grey;
-}
-.app-main-message {
-  position: absolute;
-  top: 50%;
-  left: 45%;
-  transform: translate(-10%, -90%);
-  font-size: 50px;
-  font-family: Arial, Helvetica, sans-serif;
-  color: #999;;
 }
 .app-sidebar-note.active,
 .app-sidebar-note.active small {
@@ -167,82 +152,89 @@ button:hover {
   color: white;
 }
 
-.app-main-line{
-  /*border-top: 4px solid lightgrey;
-  width: 1400px; /* Set the width of the element to 50 pixels */
-  /*margin: 20px auto;;
-  margin-left: 500px;*/
+/* NOTE EDITOR/PREVIEW (MAIN) STYLES */
 
-  border-top: 2px solid lightgrey;
-  width: 1400px; /* Set the width of the element to 50 pixels */
-  margin: 20px auto;;
-  margin-left: 486px;
-  position: fixed; /* add this */
-  top: 200px; /* adjust this value as needed */
- 
+.app-main {
   
+  display: flex;
+  justify-content: flex-start;
+  width:80%;
+  height: 100%;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+/*.app-main-note-edit {
+  width: 100%;
+  padding-right: 20px;
+  
+}*/
+
+.no-active-note {
+  width: 70%;
+  height: 100vh;
+  line-height: 100vh;
+  text-align: center;
+  font-size: 2rem;
+  color: #999;
+  margin-left: 750px;
+  margin-top: -70px;
+}
+
+/* Editing */
+.app-main-note-edit {
+  padding: 20px;
+  width: 900px;
+
 
 }
 
-
-/*.main-note-edit {
-  /* existing styles */
-  /*margin-top: calc(150px + 2px + 25px); /* set to the height of the app-main-line + border + any additional margin/padding */
-/*}*/
-
-#body{
-  /* existing styles */
-  position: fixed;
-  margin-top: 150px; 
-  margin-left: 484px;;
+.app-main-note-edit input,
+#body {
   display: block;
-  /*border: 1px solid #ddd;*/
-  margin-bottom: 80px;
-  width: 73%;
+  border: 1px solid #ddd;
+  margin-bottom: 4px;
+  margin-left: 515px;
+  ;
+
   height: 800px;
-  padding: 10px;
-  resize: none;
-  font-size: inherit;
-  font-family: Arial, Helvetica, sans-serif;
-  outline: none;
-}
-
-
-.main-note-edit input{
-  position: fixed;
-
-  display: block;
-  margin-left: 500px;
-  margin-top: 100px;
-  margin-bottom: -100px;
-  width: 50%;
-  height: calc(50vh - 130px);
-  padding: 10px;
+  /*padding: 10px;*/
   resize: none;
   font-size: inherit;
   font-family: inherit;
-  height: 40px;
-  font-size: 35px;
-  border: none;
-  border-color: #ddd;
-  font-family: Arial, Helvetica, sans-serif;
-  outline: none;
+  /* Set the width to 80% */
+  width: 165%;
 
+  outline: none;
 }
 
 
-.delete{
-  background: transparent;
-  border: none;
-  font-size: 25px;
-  margin-bottom: 30px;
-  margin-left: 1500px;
-  border: none;
+.app-main-note-edit input {
+  margin-top: -15px;
+  height: 50px;
+  font-size: 2rem;
+  /* Set the width to 80% */
+  width: 70%;
   outline: none;
-  margin-top: 115px;
-  padding: none;
+  
+  
+  
+}
 
-  position: fixed;
 
+/* Preview */
+.app-main-note-preview {
+ 
+  overflow-y: scroll;
+  background: rgba(0, 0, 0, 0.02);
+}
 
+.preview-title {
+  padding: 25px 25px 0 25px;
+  margin: 0;
+}
+
+.markdown-preview {
+  padding: 0 25px 25px 25px;
+  font-size: 1rem;
+  line-height: 2rem;
 }

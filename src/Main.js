@@ -1,29 +1,41 @@
+import ReactMarkdown from "react-markdown";
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css'; // import the styles
 
 
 
+const Main = ({ activeNote, onUpdateNote }) => {
+  const onEditField = (field, value) => {
+    onUpdateNote({
+      ...activeNote,
+      [field]: value,
+      lastModified: Date.now(),
+    });
+  };
 
+  if (!activeNote) return <div className="no-active-note">Select a note, or create one</div>;
 
-function Main({ showNoteEditor }) {
-    return (
-      <div className="app-main">
-        {!showNoteEditor && (
-          <div className="app-main-message"> Select a note, or create one</div>
-        )}
-        {showNoteEditor && (
-          <div className="main-note-edit">
-          <button className= "delete">Delete</button>
-          <input type="text" id="title" placeholder="Untitled" autoFocus/>
-          <ReactQuill id="body" placeholder="Your Note Here" />
-        </div>
-        )}
+  return (
+    <div className="app-main" >
+      <div className="app-main-note-edit">
+        <input 
+          type="text"
+          id="title"
+          placeholder="Note Title"
+          value={activeNote.title}
+          onChange={(e) => onEditField("title", e.target.value)}
+          autoFocus
+        />
 
+        <ReactQuill id="body" placeholder="Your Note Here" value={activeNote.body}
+          onChange={(e) => onEditField("body", e.target.value)} />
 
-        
+       
       </div>
-    );
-  }
-  
-  export default Main;
-  
+      
+      
+    </div>
+  );
+};
+
+export default Main;
