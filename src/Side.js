@@ -21,7 +21,7 @@ const Side = ({
           >
             <div className="sidebar-note-title">
               <strong>{title}</strong>
-              <button onClick={(e) => onDeleteNote(id)}>Delete</button>
+              
             </div>
 
             <p>{body && body.substr(0, 100) + "..."}</p>
