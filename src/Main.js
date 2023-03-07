@@ -31,7 +31,7 @@ const Main = ({ activeNote, onUpdateNote, onDeleteNote }) => {
         <ReactQuill id="body" placeholder="Your Note Here" />
       </div>
       <div className="app-main-note-delete">
-        <button onClick={onDeleteClick}>Delete Note</button>
+        <button onClick={onDeleteClick}>Delete</button>
       </div>
     </div>
   );

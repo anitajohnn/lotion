@@ -30,7 +30,7 @@ button {
   font-size: 30px;
 }
 button:hover {
-  color: #04c;
+  color: lightpink;
 }
 
 .App {
@@ -83,7 +83,7 @@ button:hover {
 }
 .app-sidebar-note.active,
 .app-sidebar-note.active small {
-  background: #08c;
+  background: lightpink;
   color: white;
 }
 
@@ -217,7 +217,7 @@ button:hover {
   transform: translate(-50%, -50%);
 }
 .app-main-note-delete{
-  margin-top: -470px;
-  margin-left: 700px;
-  font-size: 28px;
+  margin-top: -460px;
+  margin-left: 990px;
+  font-size: 20px;
 }
