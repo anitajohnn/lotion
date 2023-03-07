@@ -49,6 +49,7 @@ function App() {
 
   return (
     <div className="App">
+      <Header/>
       <Side
         notes={notes}
         onAddNote={onAddNote}

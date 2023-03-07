@@ -40,6 +40,7 @@ button:hover {
   width: 30%;
   height: 100vh;
   border-right: 1px solid #ddd;
+  margin-top: 90px;
 }
 
 .app-sidebar-header {
@@ -88,6 +89,7 @@ button:hover {
 .app-main {
   width: 70%;
   height: 100vh;
+  margin-top: 70px;
 }
 .app-main-note-edit,
 .app-main-note-preview {
@@ -146,4 +148,68 @@ button:hover {
   padding: 0 25px 25px 25px;
   font-size: 1rem;
   line-height: 2rem;
+}
+
+.header{
+  background-color: white;
+ 
+  border-bottom: 2px solid lightgrey;
+  width: 100%;
+  /*margin-top: -1120px;*/
+
+
+
+
+  /*margin-top: 0; /* remove the previous value */
+ 
+  position: fixed;
+  top: 75px;
+  left: 0;
+  z-index: 1; /* set a higher z-index than the sidebar */
+ 
+ 
+ 
+ 
+
+
+}
+/**/
+
+
+.header button{
+  background: none;
+  font-size: 40px;
+  font-family: Arial, Helvetica, sans-serif;
+  cursor: pointer;
+  position: fixed;
+  bottom: 945px;
+  left:30px;
+  border: none;
+ 
+
+
+ 
+}
+.header h1{
+  font-size: 45px;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  position: absolute;
+  top:-40px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+ 
+}
+
+.header h3{
+  font-size: 5x;
+  font-family: Arial, Helvetica, sans-serif;
+  color: grey;
+  font-size: 15px;
+  margin: 0;
+  margin: 0;
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
