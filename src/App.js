@@ -10,6 +10,7 @@ function App() {
     localStorage.notes ? JSON.parse(localStorage.notes) : []
   );
   const [activeNote, setActiveNote] = useState(false);
+  const [showSidebar, setShowSidebar] = useState(true);
 
   useEffect(() => {
     localStorage.setItem("notes", JSON.stringify(notes));
@@ -47,20 +48,26 @@ function App() {
     return notes.find(({ id }) => id === activeNote);
   };
 
+  const toggleSidebar = () => {
+    setShowSidebar(!showSidebar);
+  };
+
   return (
     <div className="App">
-      <Header/>
-      <Side
-        notes={notes}
-        onAddNote={onAddNote}
-        onDeleteNote={onDeleteNote}
-        activeNote={activeNote}
-        setActiveNote={setActiveNote}
-      />
+      <Header onToggleSide={toggleSidebar} showSidebar={showSidebar} />
+
+      {showSidebar && (
+        <Side
+          notes={notes}
+          onAddNote={onAddNote}
+          onDeleteNote={onDeleteNote}
+          activeNote={activeNote}
+          setActiveNote={setActiveNote}
+        />
+      )}
       <Main activeNote={getActiveNote()} onUpdateNote={onUpdateNote} />
     </div>
   );
 }
 
 export default App;
-
