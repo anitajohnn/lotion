@@ -24,7 +24,11 @@ const Side = ({
               
             </div>
 
-            <p>{body && body.substr(0, 100) + "..."}</p>
+            <div
+              className="sidebar-note-body"
+              dangerouslySetInnerHTML={{ __html: body }}
+            />
+
             <small className="note-meta">
               Last Modified{" "}
               {new Date(lastModified).toLocaleDateString("en-GB", {
