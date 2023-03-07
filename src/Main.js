@@ -1,8 +1,11 @@
+import React, { useState } from "react";
 import ReactMarkdown from "react-markdown";
-import ReactQuill from 'react-quill';
-import 'react-quill/dist/quill.snow.css'
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css";
 
 const Main = ({ activeNote, onUpdateNote, onDeleteNote }) => {
+  const [editing, setEditing] = useState(false);
+
   const onEditField = (field, value) => {
     onUpdateNote({
       ...activeNote,
@@ -15,16 +18,21 @@ const Main = ({ activeNote, onUpdateNote, onDeleteNote }) => {
     onDeleteNote(activeNote.id);
   };
 
-  if (!activeNote) return <div className="no-active-note">No Active Note</div>;
-
   const onSaveClick = () => {
     const updatedNote = {
       ...activeNote,
       lastModified: Date.now(),
     };
     onUpdateNote(updatedNote);
+    setEditing(false);
   };
-  
+
+  const onEditClick = () => {
+    setEditing(true);
+  };
+
+  if (!activeNote) return <div className="no-active-note">No Active Note</div>;
+
   return (
     <div className="app-main">
       <div className="app-main-note-edit">
@@ -46,18 +54,20 @@ const Main = ({ activeNote, onUpdateNote, onDeleteNote }) => {
             }
           }}
         />
-        
       </div>
       <div className="app-main-note-delete">
         <button onClick={onDeleteClick}>Delete</button>
-        
       </div>
 
       <div className="app-main-note-save">
-        <button onClick={onSaveClick}>Save</button>
+        {editing ? (
+          <button onClick={onSaveClick}>Save</button>
+        ) : (
+          <button onClick={onEditClick}>Edit</button>
+        )}
       </div>
-      
     </div>
   );
-        };
-  export default Main;  
+};
+
+export default Main;

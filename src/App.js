@@ -14,7 +14,7 @@ function App() {
 
   useEffect(() => {
     localStorage.setItem("notes", JSON.stringify(notes));
-  }, [notes]);
+  }, [notes]);  
 
   const onAddNote = () => {
     const newNote = {
