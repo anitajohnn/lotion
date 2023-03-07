@@ -17,6 +17,14 @@ const Main = ({ activeNote, onUpdateNote, onDeleteNote }) => {
 
   if (!activeNote) return <div className="no-active-note">No Active Note</div>;
 
+  const onSaveClick = () => {
+    const updatedNote = {
+      ...activeNote,
+      lastModified: Date.now(),
+    };
+    onUpdateNote(updatedNote);
+  };
+  
   return (
     <div className="app-main">
       <div className="app-main-note-edit">
@@ -28,13 +36,28 @@ const Main = ({ activeNote, onUpdateNote, onDeleteNote }) => {
           onChange={(e) => onEditField("title", e.target.value)}
           autoFocus
         />
-        <ReactQuill id="body" placeholder="Your Note Here" />
+        <ReactQuill
+          id="body"
+          placeholder="Your Note Here"
+          value={activeNote.body}
+          onChange={(content, delta, source) => {
+            if (source === "user") {
+              onEditField("body", content);
+            }
+          }}
+        />
+        
       </div>
       <div className="app-main-note-delete">
         <button onClick={onDeleteClick}>Delete</button>
+        
       </div>
+
+      <div className="app-main-note-save">
+        <button onClick={onSaveClick}>Save</button>
+      </div>
+      
     </div>
   );
-};
-
-export default Main;
+        };
+  export default Main;  
