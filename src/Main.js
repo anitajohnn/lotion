@@ -8,43 +8,38 @@ const Main = ({ activeNote, onUpdateNote, onDeleteNote }) => {
 
   const onEditField = (field, value) => {
     onUpdateNote({
-    ...activeNote,
-    [field]: value,
-    lastModified: Date.now(),
+      ...activeNote,
+      [field]: value,
+      lastModified: Date.now(),
     });
-    };
+  };
 
-    const options = {
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-      hour: "numeric",
-      minute: "numeric",
-      };
-      
-      const formatDate = (when) => {
-        const date = new Date(when);
-        const year = date.getFullYear();
-        const month = String(date.getMonth() + 1).padStart(2, "0");
-        const day = String(date.getDate()).padStart(2, "0");
-        return `${year}-${month}-${day}`;
-      };
-      
-      const onCalendarDateChange = (e) => {
-        const newDate = new Date(e.target.value);
-        const formattedDate = formatDate(newDate);
-        const updatedNote = {
-          ...activeNote,
-          lastModified: newDate.getTime(),
-        };
-        onUpdateNote(updatedNote);
-      };
-      
-      
-      
-      
-      
-      
+  const options = {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    hour: "numeric",
+    minute: "numeric",
+  };
+
+  const formatDate = (when) => {
+    const date = new Date(when);
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const day = String(date.getDate()).padStart(2, "0");
+    return `${year}-${month}-${day}`;
+  };
+
+  const onCalendarDateChange = (e) => {
+    const newDate = new Date(e.target.value);
+    const formattedDate = formatDate(newDate);
+    const updatedNote = {
+      ...activeNote,
+      lastModified: newDate.getTime(),
+    };
+    onUpdateNote(updatedNote);
+  };
+
   const onDeleteClick = () => {
     const shouldDelete = window.confirm("Are you sure you want to delete this note?");
     if (shouldDelete) {
@@ -69,7 +64,7 @@ const Main = ({ activeNote, onUpdateNote, onDeleteNote }) => {
 
   return (
     <div className="app-main">
-      <div className="app-main-note-edit">
+      <div className={`app-main-note-edit${editing ? " editing" : ""}`}>
         <input
           type="text"
           id="title"
@@ -77,6 +72,7 @@ const Main = ({ activeNote, onUpdateNote, onDeleteNote }) => {
           value={activeNote.title}
           onChange={(e) => onEditField("title", e.target.value)}
           autoFocus
+          disabled={!editing}
         />
         <ReactQuill
           id="body"
@@ -87,24 +83,25 @@ const Main = ({ activeNote, onUpdateNote, onDeleteNote }) => {
               onEditField("body", content);
             }
           }}
+          readOnly={!editing}
         />
       </div>
-      <div className="app-main-note-date-picker">
-<label htmlFor="date-picker">Last Modified:</label>
-<input
-type="date"
-id="date-picker"
-value={formatDate(activeNote.lastModified)}
-onChange={(e) => onCalendarDateChange(new Date(e.target.value))}
-/>
-
-
-</div>
-      <div className="app-main-note-delete">
-        <button onClick={onDeleteClick}>Delete</button>
+      <div className={`app-main-note-date-picker${editing ? " editing" : ""}`}>
+        <label htmlFor="date-picker">Last Modified:</label>
+        <input
+          type="date"
+          id="date-picker"
+          value={formatDate(activeNote.lastModified)}
+          onChange={(e) => onCalendarDateChange(new Date(e.target.value))}
+          disabled={!editing}
+        />
       </div>
-
-      <div className="app-main-note-save">
+      <div className={`app-main-note-delete${editing ? " editing" : ""}`}>
+        <button onClick={onDeleteClick} disabled={editing}>
+          Delete
+        </button>
+      </div>
+      <div className={`app-main-note-save${editing ? " editing" : ""}`}>
         {editing ? (
           <button onClick={onSaveClick}>Save</button>
         ) : (
