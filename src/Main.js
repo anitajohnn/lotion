@@ -5,7 +5,6 @@ import "react-quill/dist/quill.snow.css";
 import striptags from 'striptags';
 
 
-
 const Main = ({ activeNote, onUpdateNote, onDeleteNote }) => {
   const [editing, setEditing] = useState(false);
 
@@ -26,25 +25,28 @@ const Main = ({ activeNote, onUpdateNote, onDeleteNote }) => {
   };
 
   const formatDate = (when) => {
-    const date = new Date(when);
-    const year = date.getFullYear();
-    const month = String(date.getMonth() + 1).padStart(2, "0");
-    const day = String(date.getDate()).padStart(2, "0");
-    return `${year}-${month}-${day}`;
+    const formatted = new Date(when).toLocaleString("en-US", options);
+    if (formatted === "Invalid Date") {
+      return "";
+    }
+    return formatted;
   };
 
   const onCalendarDateChange = (e) => {
     const newDate = new Date(e.target.value);
-    const formattedDate = formatDate(newDate);
     const updatedNote = {
       ...activeNote,
       lastModified: newDate.getTime(),
     };
     onUpdateNote(updatedNote);
   };
+  
+  
 
   const onDeleteClick = () => {
-    const shouldDelete = window.confirm("Are you sure you want to delete this note?");
+    const shouldDelete = window.confirm(
+      "Are you sure you want to delete this note?"
+    );
     if (shouldDelete) {
       onDeleteNote(activeNote.id);
     }
@@ -94,12 +96,12 @@ const Main = ({ activeNote, onUpdateNote, onDeleteNote }) => {
         )}
       </div>
       <div className={`app-main-note-date-picker${editing ? " editing" : ""}`}>
-        <label htmlFor="date-picker">Last Modified:</label>
+        <label htmlFor="date-picker"></label>
         <input
-          type="date"
+          type="datetime-local"
           id="date-picker"
           value={formatDate(activeNote.lastModified)}
-          onChange={(e) => onCalendarDateChange(new Date(e.target.value))}
+          onChange={onCalendarDateChange}
           disabled={!editing}
         />
       </div>

@@ -30,7 +30,7 @@ const Side = ({
             />
 
             <small className="note-meta">
-              Last Modified{" "}
+              {" "}
               {new Date(lastModified).toLocaleDateString("en-GB", {
                  month: "long",
                  day: "numeric",

@@ -6,6 +6,8 @@ import Side from "./Side";
 import Header from "./Header";
 
 function App() {
+  const [formattedDate, setFormattedDate] = useState("");
+
   const [notes, setNotes] = useState(
     localStorage.notes ? JSON.parse(localStorage.notes) : []
   );
