@@ -120,7 +120,7 @@ button:hover {
   border: 1px solid #ddd;
   margin-bottom: 20px;
   margin-left: -21px;
-  width: 100%;
+  width: 104%;
   height: 900px;
   padding: 10px;
   resize: none;
@@ -228,10 +228,11 @@ button:hover {
   margin-top: -23px;
   margin-left: 999px;
   font-size: 20px;
-
+  
 
 }
 .app-main-note-date-picker{
   margin-top: -430px;
   margin-left: 20px;
+  
 }

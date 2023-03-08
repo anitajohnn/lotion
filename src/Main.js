@@ -32,12 +32,14 @@ const Main = ({ activeNote, onUpdateNote, onDeleteNote }) => {
       
       const onCalendarDateChange = (e) => {
         const newDate = new Date(e.target.value);
+        const formattedDate = formatDate(newDate);
         const updatedNote = {
           ...activeNote,
           lastModified: newDate.getTime(),
         };
         onUpdateNote(updatedNote);
       };
+      
       
       
       
@@ -95,6 +97,8 @@ id="date-picker"
 value={formatDate(activeNote.lastModified)}
 onChange={(e) => onCalendarDateChange(new Date(e.target.value))}
 />
+
+
 </div>
       <div className="app-main-note-delete">
         <button onClick={onDeleteClick}>Delete</button>
