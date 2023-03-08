@@ -15,7 +15,10 @@ const Main = ({ activeNote, onUpdateNote, onDeleteNote }) => {
   };
 
   const onDeleteClick = () => {
-    onDeleteNote(activeNote.id);
+    const shouldDelete = window.confirm("Are you sure you want to delete this note?");
+    if (shouldDelete) {
+      onDeleteNote(activeNote.id);
+    }
   };
 
   const onSaveClick = () => {
