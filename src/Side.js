@@ -24,10 +24,9 @@ const Side = ({
               
             </div>
 
-            <div
-              className="sidebar-note-body"
-              dangerouslySetInnerHTML={{ __html: body }}
-            />
+              <div className="sidebar-note-body">{body.split(" ").slice(0, 10).join(" ")}{body.split(" ").length > 10 ? "..." : ""}</div>
+
+            
 
             <small className="note-meta">
               {" "}
