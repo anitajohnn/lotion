@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import ReactMarkdown from "react-markdown";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
+import striptags from 'striptags';
+
+
 
 const Main = ({ activeNote, onUpdateNote, onDeleteNote }) => {
   const [editing, setEditing] = useState(false);
@@ -50,6 +53,7 @@ const Main = ({ activeNote, onUpdateNote, onDeleteNote }) => {
   const onSaveClick = () => {
     const updatedNote = {
       ...activeNote,
+      body: striptags(activeNote.body),
       lastModified: Date.now(),
     };
     onUpdateNote(updatedNote);
@@ -74,17 +78,20 @@ const Main = ({ activeNote, onUpdateNote, onDeleteNote }) => {
           autoFocus
           disabled={!editing}
         />
-        <ReactQuill
-          id="body"
-          placeholder="Your Note Here"
-          value={activeNote.body}
-          onChange={(content, delta, source) => {
-            if (source === "user") {
-              onEditField("body", content);
-            }
-          }}
-          readOnly={!editing}
-        />
+        {editing ? (
+          <ReactQuill
+            id="body"
+            placeholder="Your Note Here"
+            value={activeNote.body}
+            onChange={(content, delta, source) => {
+              if (source === "user") {
+                onEditField("body", content);
+              }
+            }}
+          />
+        ) : (
+          <ReactMarkdown>{activeNote.body}</ReactMarkdown>
+        )}
       </div>
       <div className={`app-main-note-date-picker${editing ? " editing" : ""}`}>
         <label htmlFor="date-picker">Last Modified:</label>
