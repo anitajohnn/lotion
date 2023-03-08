@@ -218,15 +218,20 @@ button:hover {
   transform: translate(-50%, -50%);
 }
 .app-main-note-delete{
-  margin-top: -460px;
-  margin-left: 990px;
+  margin-top: -23px;
+  margin-left: 1100px;
   font-size: 20px;
 }
 
 
 .app-main-note-save{
   margin-top: -23px;
-  margin-left: 1070px;
+  margin-left: 999px;
   font-size: 20px;
 
+
+}
+.app-main-note-date-picker{
+  margin-top: -430px;
+  margin-left: 20px;
 }
