@@ -56,7 +56,6 @@ const Main = ({ activeNote, onUpdateNote, onDeleteNote }) => {
     const updatedNote = {
       ...activeNote,
       body: striptags(activeNote.body),
-      lastModified: Date.now(),
     };
     onUpdateNote(updatedNote);
     setEditing(false);
@@ -105,6 +104,7 @@ const Main = ({ activeNote, onUpdateNote, onDeleteNote }) => {
           disabled={!editing}
         />
       </div>
+      
       <div className={`app-main-note-delete${editing ? " editing" : ""}`}>
         <button onClick={onDeleteClick} disabled={editing}>
           Delete
