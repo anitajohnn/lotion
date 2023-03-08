@@ -25,12 +25,15 @@ const Main = ({ activeNote, onUpdateNote, onDeleteNote }) => {
   };
 
   const formatDate = (when) => {
-    const formatted = new Date(when).toLocaleString("en-US", options);
-    if (formatted === "Invalid Date") {
-      return "";
-    }
-    return formatted;
+    const date = new Date(when);
+    const year = date.getFullYear();
+    const month = (date.getMonth() + 1).toString().padStart(2, '0');
+    const day = date.getDate().toString().padStart(2, '0');
+    const hours = date.getHours().toString().padStart(2, '0');
+    const minutes = date.getMinutes().toString().padStart(2, '0');
+    return `${year}-${month}-${day}T${hours}:${minutes}`;
   };
+  
 
   const onCalendarDateChange = (e) => {
     const newDate = new Date(e.target.value);
@@ -40,6 +43,7 @@ const Main = ({ activeNote, onUpdateNote, onDeleteNote }) => {
     };
     onUpdateNote(updatedNote);
   };
+  
   
   
 
